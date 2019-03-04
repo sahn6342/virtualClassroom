@@ -1,0 +1,88 @@
+<!doctype html>
+<!--<html ng-app="myapp">-->
+    <html>
+    <script src="https://use.fontawesome.com/635bcd00b1.js"></script>
+    <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <h1 align="center"><i class="fa fa-upload" aria-hidden="true"></i> UPLOAD ARTICLE</h1>
+        <style>
+            body{
+                background-image: url(vc_images/upload.jpg);
+                height: 100%;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .p{
+                 border: 2px solid black;
+            }
+        </style>
+        
+    
+        </head>
+    <body>
+        <div class= "container" ng-controller="show">
+            <br>
+        <br><br>
+            <br>
+        
+           
+        <form class= "form-group col-md-6 col-md-offset-3 p " ref='uploadForm' 
+      id='uploadForm' 
+      action='http://localhost:3000/upload' 
+      method='post' 
+      encType="multipart/form-data">
+            <br>
+            <br>
+            <div class= col-md-offset-1>
+            
+            <div class= "row class-offset-3">
+                <label><i class="fa fa-book" aria-hidden="true"></i> SUBJECT</label>
+                <!--<select name= "subject">
+                    <option>Maths</option>
+                    <option>DSA</option>
+                    <option>ADA</option>
+                </select>-->
+							<select ng-change="initTopic(selectedSubject)" name="subject" ng-model="selectedSubject"
+											ng-options="item as item.name for item in items">
+								<option value="">Select subject</option>
+							</select>
+            </div>
+                     <br>
+                     <br>
+                <div class="row">
+                    <label><i class="fa fa-spinner" aria-hidden="true"></i> Topic </label>
+									<select ng-change="topicPicked(selectedTopic)" name="topics" ng-model="selectedTopic"
+													ng-options="item for item in topics">
+										<option value="">Select topic</option>
+									</select>
+                    </select>
+                     </div>
+                          <br>
+                          <br>
+            
+                        
+                <div class="row class-offset-3">
+                    
+                    
+                <label><i class="fa fa-file" aria-hidden="true"></i> FILE</label>
+                    <!--<select>
+                    <option>PDF</option>
+                    <option>DOC</option>
+                        </select>-->
+                <input type="file" name="sampleFile" />
+                 </div>
+                <br>
+                <br>
+                
+                
+                <input type="submit" value="UPLOAD" class="btn btn-success col-md-offset-4">
+                <br>
+                <br>
+            </div>
+                    
+                     </form>
+        </div>
+        
+         </body>
+    </html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html ng-app="myapp">
+    <script src="https://use.fontawesome.com/635bcd00b1.js"></script>
+    <head>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <h1 align="center">PREPARE SCHEDULE</h1>
+        <body>
+	<!--<div class="container" ng-controller="prepareSchedule">
+		<div class="table-responsive table-bordered">
+			<br>
+			<br>
+			<br>
+			<table class="table">
+				<thead>
+					<th><i class="fa fa-sticky-note" aria-hidden="true"></i>SUBJECT</th>
+					<th><i class="fa fa-clipboard" aria-hidden="true"></i> TOPICS</th>
+					<th><i class="fa fa-calendar" aria-hidden="true"></i> DATE</th>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input class="form-control" ng-model="contact.name"></td>
+						<td><input class="form-control" ng-model="contact.email"></td>
+						<td><input type="date" class="form-control" ng-model="contact.date"></td>
+						&lt;!&ndash;<td><input type ="date" ></td>&ndash;&gt;
+						<td><button class="btn btn-primary" ng-click="addContact()">Add Schedule</button></td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+	</div>-->
+
+	<!--<div class="container" ng-controller="prepareSchedule">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Subject</th>
+					<th>Topic</th>
+					<th>Date</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" ng-model="contact.name"></td>
+					<td><input class="form-control" ng-model="contact.email"></td>
+					<td><input type="date" class="form-control" ng-model="contact.date"></td>
+					<td><button class="btn btn-primary" ng-click="addContact()">Add Schedule</button></td>
+					<td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+				</tr>
+				<tr ng-repeat="contact in contactlist">
+					<td>{{contact.subject}}</td>
+					<td>{{contact.topic}}</td>
+					<td>{{contact.date}}</td>
+					<td><button class="btn btn-danger" ng-click="remove(contact._id)">Remove</button></td>
+					<td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>-->
+	</br>
+	<div class="container" ng-controller="prepareScheduleAppCtrl">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Subject</th>
+					<th>Topic</th>
+					<th>Date</th>
+					<th>Action</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" required ng-model="contact.subject"></td>
+					<td><input class="form-control" required  ng-model="contact.topic"></td>
+					<td><input type="date" class="form-control" value="{{contact.date}}" ng-model="contact.date" required min="{{currentDate | date:'yyyy-MM-dd'}}"></td>
+					<td><button class="btn btn-primary" ng-click="addContact()">Add Topic</button></td>
+					<td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+				</tr>
+				<tr ng-repeat="contact in contactlist">
+					<td>{{contact.subject}}</td>
+					<td>{{contact.topic}}</td>
+					<td>{{contact.date | date : 'fullDate'}}</td>
+					<td><button class="btn btn-danger" ng-click="remove(contact._id)">Remove</button></td>
+					<td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<!--<br>
+	<button ng-click="saveSchedule()" type ="submit" class="btn btn-success col-md-3 col-md-offset-4"><i class="fa fa-bookmark"
+																																															 aria-hidden="true"></i>
+			SAVE</button>
+	<div class= "row col-md-5 col-md-offset-1">
+							<br>
+							<br>
+							<br>
+
+					<label class= "a"> SEND SCHEDULE VIA</label>
+							<div class= "row col-md-offset-1 ">
+									<br>
+
+				<button type="button" class="btn btn-success b "><i class="fa fa-envelope" aria-hidden="true"></i> EMAIL</button>
+
+					<button type="button" class="btn btn-primary b col-md-offset-2"><i class="fa fa-commenting" aria-hidden="true"></i> SMS</button>
+							</div>
+					</div>-->
+            
+            </body>
+        </head>
+
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html ng-app="myapp">
+    <script src="https://use.fontawesome.com/635bcd00b1.js"></script>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            body,html{
+                height: 100%;
+                width: 100%;
+    margin: 0;
+                background-image: url(vc_images/login.jpg);
+                height: 100%;
+                background-position: center;
+                background-size: cover;
+            }
+            /*.aa
+            {
+                background-image: url(vc_images/login.jpg);
+                height: 100%;
+                background-position: center;
+                background-size: cover;
+            }*/
+/*
+            .bg{
+                padding:20px;
+                border-radius: 10px;
+                background:linear-gradient(#fcf8e3,#dff0d8);
+            }
+*/
+/*
+            .text{
+                color: white;
+            }
+*/
+        </style>
+        <body>
+    <div ng-controller="login">
+       
+            <br>
+            <br>
+            <div class="container col-md-5 col-md-offset-6 text">
+                <div class= "form-group">
+                <form novalidate name="myform"><br>
+        <h2>Login <i class="fa fa-user-o" aria-hidden="true"></i></h2><br><br>
+        <label><i class="fa fa-envelope" aria-hidden="true"></i> Email Address </label>
+        <input ng-model="l.email" type="email" id="Email" class="form-control" placeholder="Email address" required autofocus pattern="^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$"><br>
+        <span ng-show="myform.Email.$touched || myform.$submitted" class="error-message" ng-messages='myform.Email.$error'>
+         <span ng-message="required">You can't leave this empty.</span>
+            <span ng-message="pattern">Enter only alphanumeric characters , dot(.) , at the rate(@)</span>
+		</span>
+                    <br>
+        <label><i class="fa fa-unlock-alt" aria-hidden="true"></i> Password </label>
+        <input ng-model="l.password" type="password" id="Password" class="form-control" placeholder="Password" required minlenght="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+         <span ng-show="myform.PASSWORD.$touched || myform.$submitted" class="error-message" ng-messages='myform.PASSWORD.$error'>
+             <span ng-message="required">You can't leave this empty.</span>
+			<span ng-message="pattern">Enter password of minimum 8 character and that contains alphabets and number</span>
+		</span>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+            <!--<a href ng-click="forgetPassword()" class="show_hide pull-right">Forgot password?</a>-->
+        </div>
+        <button class="btn btn-lg btn-primary" type="submit" ng-click="userLogin()">Login</button>
+        <!--<button class="btn btn-lg btn-primary" type="submit" ng-click="teacherLogin()">Login as Teacher</button>-->
+      </form>
+
+    </div>
+            </div>
+            </div>
+        </body>
+    </head>
+</html>

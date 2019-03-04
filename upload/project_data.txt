@@ -1,0 +1,11 @@
+Run mongod
+
+start nodemon server.js
+
+ctrc-C in case node hangs -only 1 time
+
+Teacher -nancy.gandhi23@gmail.com
+nancygandhi1
+
+student - charllygandhi@gmail.com
+charllygandhi1

@@ -1,0 +1,152 @@
+<!docytpe html>
+<html ng-app="myapp">
+    <script src="https://use.fontawesome.com/635bcd00b1.js"></script>
+<head> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <h1 align = "center">CREATE A NEW ACCOUNT</h1>   
+    <style>
+        .error-message{
+        color: red;
+    }
+    </style>
+    </head>
+    <body>
+        
+  <div class="container" ng-controller="signup">
+        <br>
+        <br>
+        <br>
+            <div class ="col-md-6 ">
+            <form name="myform">
+                <div class="form-group">
+                <div class="row">
+                    <label> <i class="fa fa-user-o" aria-hidden="true"></i>FIRST NAME</label>
+                    <input type ="text" name ="FNAME" required class="form-control" ng-model="s.FNAME" pattern="^([A-Z][a-z]*[\s]?)+$" >
+		<span ng-show="myform.FNAME.$touched || myform.$submitted" class="error-message" ng-messages='myform.FNAME.$error'>
+			<span ng-message="required">You can't leave this empty.</span>
+			<span ng-message="pattern">Enter only letters (a-z) with first character capital</span>
+		</span>
+                      </div>
+                   </div>
+
+
+
+							<div class="form-group">
+								<div class="row">
+									<label> <i class="fa fa-user-o" aria-hidden="true"></i>LAST NAME</label>
+									<input type ="text" name ="LNAME" required class="form-control" ng-model="s.LNAME" pattern="^([A-Z][a-z]*[\s]?)+$" >
+		<span ng-show="myform.LNAME.$touched || myform.$submitted" class="error-message" ng-messages='myform.LNAME.$error'>
+			<span ng-message="required">You can't leave this empty.</span>
+			<span ng-message="pattern">Enter only letters (a-z) with first character capital</span>
+		</span>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<div class="row">
+									<label> <i class="fa fa-user-o" aria-hidden="true"></i>EMAIL ADRESS</label>
+									<input type ="text" name ="EMAIL" required class="form-control" ng-model="s.EMAIL" pattern="^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$" ><!--pattern="^([A-Z][a-z]*[\s]?)+$"-->
+		<span ng-show="myform.EMAIL.$touched || myform.$submitted" class="error-message" ng-messages='myform.EMAIL.$error'>
+			<span ng-message="required">You can't leave this empty.</span>
+			<span ng-message="pattern">Enter only alphanumeric characters , dot(.) , at the rate(@)</span>
+		</span>
+								</div>
+							</div>
+
+
+               <div class="form-group">
+                <div class="row">
+                    <label> <i class="fa fa-lock" aria-hidden="true"></i> PASSWORD</label>
+                    <!--<input type ="password" name ="PASSWORD" required class="form-control" ng-model="s.PASSWORD" minlenght="8" pattern="^[abc|ABC|123]*[0-9]*$">-->
+                    <input type ="password" name ="PASSWORD" required class="form-control" ng-model="s.PASSWORD" minlenght="8" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+                    <span ng-show="myform.PASSWORD.$touched || myform.$submitted" class="error-message" ng-messages='myform.PASSWORD.$error'>
+			<span ng-message="required">You can't leave this empty.</span>
+			<span ng-message="pattern">Enter password of minimum 8 character and that ends with any number</span>
+		</span>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                <div class = "row">
+                    <label> <i class="fa fa-lock" aria-hidden="true"></i> CONFIRM-PASSWORD</label>
+                    <input type ="password" name ="CONFIRM-PASSWORD"  required class="form-control" ng-model="s.COPASSWORD" minlenght="8"
+													 pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+                    <span ng-show="myform.CONFIRM-PASSWORD.$touched || myform.$submitted" class="error-message" ng-messages='myform.CONFIRM-PASSWORD.$error'>
+			<span ng-message="required">You can't leave this empty.</span>
+			<span ng-message="pattern">Enter password that ends with any number</span>
+		</span>
+                    </div>
+                </div>
+
+
+
+            <div class="form-group">
+                <div class="row">
+                    <label><i class="fa fa-phone-square" aria-hidden="true"></i> PHNO</label>
+                    <input type ="text" name ="PHNO" required class ="form-control" ng-model="s.PHNO" minlength="10" pattern="^[789][0-9]*$">
+	  <span ng-show ="myform.PHNO.$touched || myform.$submitted" ng-messages='myform.PHNO.$error' class="error-message">
+		<span ng-message="required">you have to fill this</span>
+		<span ng-message="minlength">minimum lenght should be 10 </span>
+		<span ng-message="pattern">number should start with 7,8 or 9 </span>
+                            </span>
+                        </div>
+                    </div>
+
+
+        <div class ="form-group">
+        <div><button class ="btn btn-info" ng-click="generateOtp();"> <i class="fa fa-user-plus" aria-hidden="true"></i> Generate OTP </button>
+        </div>
+                    <div class="form-group">
+                <div class="row">
+                    <label><i class="fa fa-phone-square" aria-hidden="true"></i> Enter OTP</label>
+                    <input type ="text" name ="otp" class ="form-control" ng-model="s.OTP" minlength="6" pattern="[0-9]*$">
+	  <span ng-show ="myform.otp.$touched || myform.$submitted" ng-messages='myform.otp.$error' class="error-message">
+		<span ng-message="required">Please fill in the otp</span>
+		<!--<span ng-message="minlength">minimum lenght should be 10 </span>
+		<span ng-message="pattern">number should start with 7,8 or 9 </span>-->
+                            </span>
+                </div>
+            </div>
+                
+        
+                </div>
+                
+                
+        <div class ="form-group">
+                <div class ="row ">
+                    <div class="col-md-6"><button ng-click="signup()" class ="btn btn-info"> <i class="fa fa-user-plus"
+																																																			 aria-hidden="true"></i> SIGN	UP
+											</button>
+                        </div>
+                    <div class="radio " ng-init="s.RADIO=student">
+            <label> <input ng-model="s.RADIO" type="radio" name="optionsRadios" id="optionsRadios1" value="teacher"><i
+							class="fa fa-user-circle"
+																																																		 aria-hidden="true"></i> TEACHER</label>
+                        </div>
+                    <div class="radio col-md-offset-6 ">
+            <label><input ng-model="s.RADIO" type="radio" name="optionsRadios" id="optionsRadios2" value="student" ng-checked = "true"><i
+							class="fa fa-user-circle"
+																																																		aria-hidden="true"></i> STUDENT</label>
+                            </div>
+                        </div>
+                </div>
+                
+                   </form>
+                      
+	  <!--<pre> {{myform | json}} </pre>-->
+
+
+<script src="angular.js"></script>
+<script src = "angular-messages.min.js"></script>
+<script src="app.js"></script>
+                
+        
+
+                </div>      
+        </div>
+             
+    </body>
+  
+</html> 

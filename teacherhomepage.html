@@ -1,0 +1,95 @@
+<!doctype html>
+<html ng-app="myapp">
+    <script src="https://use.fontawesome.com/635bcd00b1.js"></script>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <h1 align = "center"><i class="fa fa-user" aria-hidden="true"></i> TEACHER HOME PAGE</h1>  
+    <style>
+    
+            body{
+                height: 100%;
+                width: 100%;
+                margin: 0;
+                  background-image: url(vc_images/login.jpg);
+                height: 100%;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;      
+            }
+            .aa{
+          
+        }
+            .button:hover {
+   background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+                
+        }
+        .b{
+        border-radius: 10%;
+             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            
+            
+        }
+        .a{
+            font-size: 20px;
+            font-family: monospace;
+        }
+    
+    </style>
+    
+    
+    
+    <body>
+        <div class= "container" ng-controller="show">
+
+            <form name= "teacherform">
+                <div class= "form-group">
+                
+                <br>
+                <br>
+                <div class= "form-group col-md-8">
+                <div class="row col-md-9 col-md-offset-3">
+                    <label> <i class="fa fa-user-circle-o" aria-hidden="true"></i> TEACHER NAME :</label>
+										<span ng-bind="userName"></span>
+                    <br>
+                    </div>
+                <table class = "table table-striped col-md-8 col-md-offset-3">
+                    <thead>
+                    <th>SUBJECT</th>
+                    <th>TOPIC</th>
+                    <th>RATINGS (1 to 10)</th>
+                    </thead>
+                        <tbody>
+                    <tr ng-repeat = 'item in itemsTeacher'>
+                        <td>{{item.subject}}</td>
+                        <td>{{item.topic}}</td>
+                        <td>{{item.rating}}</td>
+                    </tr>
+                    </tbody>
+                    </table>
+                        <div class="form-group">
+                           <div class= "row col-md-8 col-md-offset-3">
+                            <br>
+                            <br>
+                            <button ng-click="prepareSchedule()" type= "button" class="btn button"> <i class="fa fa-calendar" aria-hidden="true"></i>
+															PREPARE
+															SCHEDULE</button>
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                        </div>
+                            <div class= "row col-md-9 col-md-offset-3">
+                            <button ng-click="uploadArticle();" type= "button" class="btn button"><i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> UPLOAD ARTICLE</button>
+                        </div>
+                    
+                    
+                        </div>
+                </div>
+                    </form>
+            
+        </div>
+        </body>
+     </head>
+</html>
